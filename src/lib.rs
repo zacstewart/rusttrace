@@ -88,7 +88,7 @@ pub extern "C" fn record(usage: &mut Usage,
 }
 
 #[no_mangle]
-pub extern "C" fn report(usage: &mut Usage) -> Report {
+pub extern "C" fn report(usage: &Usage) -> Report {
     let mut counts: Vec<CallCount> = usage.calls
         .iter()
         .map(|(method, count)| CallCount::new(method, count) )
