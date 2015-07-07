@@ -34,7 +34,11 @@ module Rusttrace
     module Rust
       extend FFI::Library
 
-      ffi_lib 'target/debug/librusttrace.dylib'
+      if /darwin/ =~ RUBY_PLATFORM
+        ffi_lib 'target/release/librusttrace.dylib'
+      else
+        ffi_lib 'target/release/librusttrace.so'
+      end
 
       attach_function :new_usage, [], :pointer
       attach_function :record, [:pointer, :string, :string, :int, :string, :string], :void
