@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Rust Trace</title>
+        <style>
+            body {
+                font-family: Menlo;
+            }
+        </style>
+    </head>
+    <body>
+        <table>
+            <thead>
+                <tr>
+                    <th>Method</th>
+                    <th>Calls</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% report.each do |call_count| %>
+                    <tr>
+                        <td><%= call_count.method_name %></td>
+                        <td><%= call_count.count %></td>
+                    </tr>
+                <% end %>
+            </tbody>
+        </table>
+    </body>
+</html>
