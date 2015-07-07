@@ -37,6 +37,10 @@ app = Rack::Builder.new do
     run Application.new(usage)
   end
 
+  map '/files' do
+    run Rack::Directory.new('.')
+  end
+
   map '/' do
     run lambda { |env|
       ['200', {'Content-Type' => 'text/html'}, ['recorded']]
