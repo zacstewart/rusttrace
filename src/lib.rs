@@ -59,7 +59,7 @@ pub struct CCallCount {
 
 #[repr(C)]
 pub struct Report {
-    length: u32,
+    length: usize,
     call_counts: *const CCallCount
 }
 
@@ -101,7 +101,7 @@ pub extern "C" fn report(usage: &Usage) -> Report {
         .collect();
 
     Report {
-        length: c_counts.len() as u32,
+        length: c_counts.len(),
         call_counts: c_counts.as_ptr()
     }
 }
