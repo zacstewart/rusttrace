@@ -45,7 +45,6 @@ module Rusttrace
     end
 
     def initialize
-      @value = 0
       @usage = Rust.new_usage
     end
 
@@ -58,9 +57,5 @@ module Rusttrace
     def report
       Rust.report(@usage)
     end
-
-    private
-
-    attr_reader :value
   end
 end
