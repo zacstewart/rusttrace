@@ -2,7 +2,6 @@ module Rusttrace
   class Usage
     class CallCount < FFI::Struct
       layout :count, :uint,
-             :method_length, :uint,
              :method_name, :string
 
       def inspect
